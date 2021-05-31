@@ -61,7 +61,14 @@ function showTasks(){
 
 //delete task function
 
-
+function deleteTask(index) {
+    let getLocalStorage = localStorage.getItem("New Todo");
+    listArr = JSON.parse(getLocalStorage);
+    listArr.splice(index, 1); //delete or remove the particular indexed li
+    // after remove the li again update the local storage
+    localStorage.setItem("New Todo", JSON.stringify(listArr)); //transforming js object into a json string
+    showTasks(); //calling showtasks function
+}
 
 // delete all tasks function
 deleteAllBtn.onclick = () => {
